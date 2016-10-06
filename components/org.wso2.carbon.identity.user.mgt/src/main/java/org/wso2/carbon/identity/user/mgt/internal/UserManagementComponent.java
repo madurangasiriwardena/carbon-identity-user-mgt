@@ -35,7 +35,8 @@ public class UserManagementComponent {
     public void registerUserManagementService(BundleContext bundleContext) {
 
         try {
-            bundleContext.registerService(PrivilegedRealmService.class, new PrivilegedRealmServiceImpl(null), null);
+            PrivilegedRealmServiceImpl privilegedRealmService = new PrivilegedRealmServiceImpl(null);
+            bundleContext.registerService(PrivilegedRealmService.class, privilegedRealmService, null);
         } catch (Throwable e) {
 
         }

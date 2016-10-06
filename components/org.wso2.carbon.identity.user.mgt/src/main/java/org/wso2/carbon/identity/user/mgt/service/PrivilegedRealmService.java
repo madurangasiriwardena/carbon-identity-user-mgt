@@ -19,15 +19,16 @@ package org.wso2.carbon.identity.user.mgt.service;
 import org.wso2.carbon.identity.user.mgt.store.PrivilegedCredentialStore;
 import org.wso2.carbon.identity.user.mgt.store.PrivilegedIdentityStore;
 import org.wso2.carbon.security.caas.user.core.service.RealmService;
+
 /**
+ *
  * Extended Realm Service for user management.
  *
- * @since 1.0.0
+ * @param <T1>
+ * @param <T2>
  */
-public interface PrivilegedRealmService extends RealmService {
+public interface PrivilegedRealmService<T1 extends PrivilegedIdentityStore, T2 extends
+        PrivilegedCredentialStore> extends RealmService<T1, T2> {
 
-    PrivilegedCredentialStore getPrivilegedCredentialStore();
-
-    PrivilegedIdentityStore getPrivilegedIdentityStore();
 
 }
