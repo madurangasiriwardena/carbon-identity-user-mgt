@@ -16,10 +16,16 @@
 
 package org.wso2.carbon.identity.user.mgt.store.impl;
 
+import org.wso2.carbon.identity.user.mgt.model.GroupModel;
+import org.wso2.carbon.identity.user.mgt.model.UserModel;
 import org.wso2.carbon.identity.user.mgt.store.PrivilegedIdentityStore;
 import org.wso2.carbon.security.caas.user.core.bean.Group;
 import org.wso2.carbon.security.caas.user.core.bean.User;
+import org.wso2.carbon.security.caas.user.core.claim.Claim;
+import org.wso2.carbon.security.caas.user.core.claim.MetaClaim;
+import org.wso2.carbon.security.caas.user.core.exception.GroupNotFoundException;
 import org.wso2.carbon.security.caas.user.core.exception.IdentityStoreException;
+import org.wso2.carbon.security.caas.user.core.exception.UserNotFoundException;
 import org.wso2.carbon.security.caas.user.core.store.IdentityStoreImpl;
 
 import java.util.List;
@@ -34,114 +40,232 @@ import javax.security.auth.callback.Callback;
 public class PrivilegedIdentityStoreImpl extends IdentityStoreImpl implements PrivilegedIdentityStore {
 
     @Override
-    public User addUser(Callback[] callbacks) throws IdentityStoreException {
+    public User addUser(UserModel users) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public User addUser(Callback[] callbacks, String domain) throws IdentityStoreException {
+    public User addUser(UserModel users, String domain) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public User addUser(Callback[] callbacks, Map<String, String> userAttributes) throws IdentityStoreException {
+    public List<User> addUsers(List<UserModel> users) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public User addUser(Callback[] callbacks, Map<String, String> userAttributes, String domain) throws
-            IdentityStoreException {
+    public List<User> addUsers(List<UserModel> users, String domain) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public User addUser(String username, Callback credential, Map<String, String> userAttributes) throws
-            IdentityStoreException {
+    public void updateUserClaims(String userId, List<Claim> userClaims) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void updateUserClaims(String userId, List<Claim> userClaims, String domain) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void updateUserClaims(String userId, List<Claim> userClaimsToUpdate, List<Claim> userClaimsToRemove) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void updateUserClaims(String userId, List<Claim> userClaimsToUpdate, List<Claim> userClaimsToRemove, String domain) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void deleteUser(String userId) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void deleteUser(String userId, String domain) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void updateGroupsOfUser(String userId, List<GroupModel> groups) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void updateGroupsOfUser(String userId, List<GroupModel> groups, String domain) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void updateGroupsOfUser(String userId, List<GroupModel> groupsToUpdate, List<GroupModel> groupsToRemove) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public void updateGroupsOfUser(String userId, List<GroupModel> groupsToUpdate, List<GroupModel> groupsToRemove, String domain) throws IdentityStoreException {
+
+    }
+
+    @Override
+    public Group addGroup(GroupModel groupModel) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public User addUser(String username, Callback credential, Map<String, String> userAttributes, String domain)
-            throws IdentityStoreException {
+    public Group addGroup(GroupModel groupModel, String domain) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public Group addGroup(String groupName, List<User> users) throws IdentityStoreException {
+    public List<Group> addGroups(List<GroupModel> groups) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public Group addGroup(String groupName, List<User> users, String domain) throws IdentityStoreException {
+    public List<Group> addGroups(List<GroupModel> groups, String domain) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public Group addGroup(String groupName, List<User> users, Map<String, String> groupAttributes) throws
-            IdentityStoreException {
+    public Group updateGroupClaims(String groupId, List<Claim> groupClaims) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public Group addGroup(String groupName, List<User> users, Map<String, String> groupAttributes, String domain)
-            throws IdentityStoreException {
+    public Group updateGroupClaims(String groupId, List<Claim> groupClaims, String domain) throws IdentityStoreException {
         return null;
     }
 
     @Override
-    public void deleteUser(User user) throws IdentityStoreException {
+    public Group updateGroupClaims(String groupId, List<Claim> groupClaimsToUpdate, List<Claim> groupClaimsToRemove) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public Group updateGroupClaims(String groupId, List<Claim> groupClaimsToUpdate, List<Claim> groupClaimsToRemove, String domain) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public void deleteGroup(String groupId) throws IdentityStoreException {
 
     }
 
     @Override
-    public void deleteGroup(Group group) throws IdentityStoreException {
+    public void deleteGroup(String groupId, String domain) throws IdentityStoreException {
 
     }
 
     @Override
-    public void updateAttributesOfUser(String userId, String domain, Map<String, String> newUserAttributes) throws
-            IdentityStoreException {
+    public void updateUsersOfGroup(String groupId, List<UserModel> users) throws IdentityStoreException {
 
     }
 
     @Override
-    public void updateAttributesOfUser(String userId, String domain, Map<String, String> attributesToAssign,
-                                       Map<String, String> attributesToUnAssign) throws IdentityStoreException {
+    public void updateUsersOfGroup(String groupId, List<UserModel> users, String domain) throws IdentityStoreException {
 
     }
 
     @Override
-    public void updateGroupsOfUser(String userId, String domain, List<Group> newGroupList) throws
-            IdentityStoreException {
+    public void updateUsersOfGroup(String groupId, List<UserModel> usersToUpdate, List<UserModel> usersToRemove) throws IdentityStoreException {
 
     }
 
     @Override
-    public void updateGroupsOfUser(String userId, String domian, List<Group> groupsToAssign, List<Group>
-            groupsToUnAssign) throws IdentityStoreException {
+    public void updateUsersOfGroup(String groupId, List<UserModel> usersToUpdate, List<UserModel> usersToRemove, String domain) throws IdentityStoreException {
 
     }
 
     @Override
-    public void updateUsersOfGroup(String groupId, String domain, List<User> newUsers) throws IdentityStoreException {
-
+    public User getUser(String userId, String domain) throws IdentityStoreException, UserNotFoundException {
+        return null;
     }
 
     @Override
-    public void updateUsersOfGroup(String groupId, String domain, List<User> usersToAssign, List<User>
-            usersToUnAssign) throws IdentityStoreException {
-
+    public User getUser(Claim claim, String domain) throws IdentityStoreException, UserNotFoundException {
+        return null;
     }
 
     @Override
-    public void updateAttributesOfGroup(String groupId, String domain, Map<String, String> groupAttributes) throws
-            IdentityStoreException {
-
+    public List<User> listUsers(int offset, int length) throws IdentityStoreException {
+        return null;
     }
 
     @Override
-    public void updateAttributesOfGroup(String groupId, String domain, Map<String, String> attributesToAssign,
-                                        Map<String, String> attributesToUnAssign) throws IdentityStoreException {
+    public List<User> listUsers(int offset, int length, String domain) throws IdentityStoreException {
+        return null;
+    }
 
+    @Override
+    public List<User> listUsers(Claim claim, int offset, int length, String domain) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<User> listUsers(MetaClaim metaClaim, String filterPattern, int offset, int length) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<User> listUsers(MetaClaim metaClaim, String filterPattern, int offset, int length, String domain) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public Group getGroup(String groupId, String domain) throws IdentityStoreException, GroupNotFoundException {
+        return null;
+    }
+
+    @Override
+    public Group getGroup(Claim claim, String domain) throws IdentityStoreException, GroupNotFoundException {
+        return null;
+    }
+
+    @Override
+    public List<Group> listGroups(int offset, int length) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<Group> listGroups(int offset, int length, String domain) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<Group> listGroups(Claim claim, int offset, int length) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<Group> listGroups(Claim claim, int offset, int length, String domain) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<Group> listGroups(MetaClaim metaClaim, String filterPattern, int offset, int length) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<Group> listGroups(MetaClaim metaClaim, String filterPattern, int offset, int length, String domain) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<Group> getGroupsOfUser(String userId, String domain) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public List<User> getUsersOfGroup(String groupId, String domain) throws IdentityStoreException {
+        return null;
+    }
+
+    @Override
+    public boolean isUserInGroup(String userId, String groupId, String domain) throws IdentityStoreException {
+        return false;
     }
 }

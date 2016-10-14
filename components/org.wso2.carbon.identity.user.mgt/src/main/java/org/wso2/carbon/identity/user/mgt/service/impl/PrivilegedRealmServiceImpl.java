@@ -25,6 +25,9 @@ import org.wso2.carbon.security.caas.user.core.exception.AuthorizationStoreExcep
 import org.wso2.carbon.security.caas.user.core.exception.CredentialStoreException;
 import org.wso2.carbon.security.caas.user.core.exception.DomainManagerException;
 import org.wso2.carbon.security.caas.user.core.exception.IdentityStoreException;
+import org.wso2.carbon.security.caas.user.core.store.AuthorizationStore;
+import org.wso2.carbon.security.caas.user.core.store.CredentialStore;
+import org.wso2.carbon.security.caas.user.core.store.IdentityStore;
 
 /**
  * Extended Realm Service Implementation.
@@ -35,9 +38,9 @@ import org.wso2.carbon.security.caas.user.core.exception.IdentityStoreException;
 public class PrivilegedRealmServiceImpl<T1 extends PrivilegedIdentityStore, T2 extends PrivilegedCredentialStore>
         extends CarbonRealmServiceImpl implements PrivilegedRealmService {
 
-    public PrivilegedRealmServiceImpl(StoreConfig storeConfig) throws IdentityStoreException,
-            AuthorizationStoreException, CredentialStoreException, DomainManagerException {
-        super(storeConfig);
+
+    public PrivilegedRealmServiceImpl(IdentityStore identityStore, CredentialStore credentialStore, AuthorizationStore authorizationStore) {
+        super(identityStore, credentialStore, authorizationStore);
     }
 
     @Override

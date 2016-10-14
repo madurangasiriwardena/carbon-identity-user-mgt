@@ -88,7 +88,7 @@ public interface PrivilegedIdentityStoreConnector extends IdentityStoreConnector
     /**
      * Deletes the user.
      *
-     * @param user User to be deleted.
+     * @param user UserModel to be deleted.
      * @throws IdentityStoreException Identity store exception.
      */
     void deleteUser(User user) throws IdentityStoreException;
