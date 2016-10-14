@@ -56,7 +56,6 @@
 
     <modules>
         <module>components/org.wso2.carbon.identity.user.mgt</module>
-        <module>tests</module>
     </modules>
 
     <dependencyManagement>

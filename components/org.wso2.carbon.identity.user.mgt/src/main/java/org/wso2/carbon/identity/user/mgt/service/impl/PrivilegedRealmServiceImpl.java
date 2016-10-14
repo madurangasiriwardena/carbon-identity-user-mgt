@@ -23,28 +23,33 @@ import org.wso2.carbon.security.caas.user.core.common.CarbonRealmServiceImpl;
 import org.wso2.carbon.security.caas.user.core.config.StoreConfig;
 import org.wso2.carbon.security.caas.user.core.exception.AuthorizationStoreException;
 import org.wso2.carbon.security.caas.user.core.exception.CredentialStoreException;
+import org.wso2.carbon.security.caas.user.core.exception.DomainManagerException;
 import org.wso2.carbon.security.caas.user.core.exception.IdentityStoreException;
+import org.wso2.carbon.security.caas.user.core.store.AuthorizationStore;
+import org.wso2.carbon.security.caas.user.core.store.CredentialStore;
+import org.wso2.carbon.security.caas.user.core.store.IdentityStore;
 
 /**
  * Extended Realm Service Implementation.
  *
- * @since 1.0.0
+ * @param <T1>
+ * @param <T2>
  */
-public class PrivilegedRealmServiceImpl extends CarbonRealmServiceImpl implements PrivilegedRealmService {
+public class PrivilegedRealmServiceImpl<T1 extends PrivilegedIdentityStore, T2 extends PrivilegedCredentialStore>
+        extends CarbonRealmServiceImpl implements PrivilegedRealmService {
 
 
-    public PrivilegedRealmServiceImpl(StoreConfig storeConfig) throws IdentityStoreException,
-            AuthorizationStoreException, CredentialStoreException {
-        super(storeConfig);
+    public PrivilegedRealmServiceImpl(IdentityStore identityStore, CredentialStore credentialStore, AuthorizationStore authorizationStore) {
+        super(identityStore, credentialStore, authorizationStore);
     }
 
     @Override
-    public PrivilegedCredentialStore getPrivilegedCredentialStore() {
+    public T1 getIdentityStore() {
         return null;
     }
 
     @Override
-    public PrivilegedIdentityStore getPrivilegedIdentityStore() {
+    public T2 getCredentialStore() {
         return null;
     }
 }
